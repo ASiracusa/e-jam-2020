@@ -10,7 +10,7 @@ public class Constansts{
         {"Ceral", "3.99"},
         };
 */
-    readonly Dictionary<string, BarCode> yesBar = new Dictionary<string, int>
+    readonly Dictionary<string, BarCode> yesBar = new Dictionary<string, BarCode>
 {
     ["12345678"] = new BarCode("Spaget", 22.11),
     ["87654321"] = new BarCode("Not Spaget", 11.22),
