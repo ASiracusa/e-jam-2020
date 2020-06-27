@@ -5,9 +5,9 @@ using UnityEngine;
 public class BarCode
 {
     public string BarName;
-    public float price;
+    public double price;
 
-    public BarCode(string n, float p){
+    public BarCode(string n, double p){
         BarName=n;
         price=p;
     }
