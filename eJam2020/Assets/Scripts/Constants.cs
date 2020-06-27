@@ -12,9 +12,9 @@ public class Constansts{
 */
     readonly Dictionary<string, BarCode> yesBar = new Dictionary<string, BarCode>
 {
-    ["12345678"] = new BarCode("Chocolate", 22.11),
-    ["87654321"] = new BarCode("Pasta", 11.22),
-    ["23038589"] = new BarCode("Sour Candy", 222.11)
+    {"12345678", new BarCode("Chocolate", 22.11)},
+    {"87654321", new BarCode("Pasta", 11.22)},
+    {"23038589", new BarCode("Sour Candy", 222.11)}
 };
 /*
     public Constansts{
