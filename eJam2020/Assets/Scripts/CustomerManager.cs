@@ -13,8 +13,7 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         current = this;
-        errorTol = 1;
-        totalCustomers = 2;
+        totalCustomers = 3;
 
         NewCustomer();
     }
