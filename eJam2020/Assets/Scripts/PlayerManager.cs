@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     private GameObject cam;
     private Vector3 camTargetPos;
 
+    private ClickMode clickMode;
+
     void Start()
     {
         current = this;
@@ -19,10 +21,12 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(Strafe());
     }
 
+    // Controls moving left and right
     private IEnumerator Strafe()
     {
         while (true)
         {
+            // Sets new target position based on input
             if (Input.GetKey(KeyCode.A))
             {
                 camTargetPos += new Vector3(-0.3f, 0, 0);
@@ -40,8 +44,14 @@ public class PlayerManager : MonoBehaviour
                 }
             }
 
+            // Slowly moves toward the target position
             cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition, camTargetPos, 0.25f);
             yield return true;
         }
+    }
+
+    public void SetClickMode(ClickMode _clickMode)
+    {
+        clickMode = _clickMode;
     }
 }
