@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ChatManager : MonoBehaviour
 {
-    public ChatManager current;
-    private static ChatManager instance = null;
-    private static readonly object padlock = new object();
+    public static ChatManager current;
+
+    private Conversation[] conversations;
+    private Conversation currConvo;
+
     // Start is called before the first frame update
     void Start()
     {
-        current = Instance;
+        current = this;
+
+        conversations = Resources.LoadAll<Conversation>("Conversations");
     }
 
     // Update is called once per frame
@@ -19,16 +23,23 @@ public class ChatManager : MonoBehaviour
         
     }
 
+    public void GenerateNewConversation ()
+    {
+        int r = Random.Range(0, conversations.Length - 1);
+        currConvo = conversations[r];
 
-    //Thread Safe Singleton
-    public static ChatManager Instance{
-        get{ 
-            lock(padlock) {
-                if (instance == null){
-                    instance = new ChatManager();
-                }
-                return instance;
-            }
+        StartCoroutine(ExecuteIntroConversation());
+    }
+
+    private IEnumerator ExecuteIntroConversation ()
+    {
+        int convoSection = 0;
+
+        foreach (Dialogue dialogue in currConvo.introConvo)
+        {
+            // anthony stopped here
         }
+
+        yield return null;
     }
 }
