@@ -18,10 +18,6 @@ public class CustomerManager : MonoBehaviour
         current=Instance;
         totalCustomers=2;
         current=Instance;
-<<<<<<< HEAD
-=======
-        //random items
->>>>>>> b2abba509a8808dfc08a5bee182fe1190012edbd
     }
 
     public void NewCustomer(){
