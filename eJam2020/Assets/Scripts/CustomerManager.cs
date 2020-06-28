@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
+    public CustomerManager current;
+
     private int errorTol; //amount of errors to 
     private int totalCustomers;
     public List<GameObject> items;
-    public CustomerManager current;
-    private static CustomerManager instance = null;
-    private static readonly object padlock = new object();
 
-    public CustomerManager(){
-        errorTol=1;
-        totalCustomers=2;    
+    void Start()
+    {
+        current = this;
+        errorTol = 1;
+        totalCustomers = 2;
+
         NewCustomer();
-        current=Instance;
-        totalCustomers=2;
-        current=Instance;
     }
 
     public void NewCustomer(){
         items = new List<GameObject>();
-        totalCustomers-=1;
-        errorTol=1;
+        totalCustomers -= 1;
+        errorTol = 1;
         GameObject[] nextitems = Resources.LoadAll<GameObject>("Items");
-        var rand = Random.Range(0,nextitems.Length-1);
+        int rand = Random.Range(0,nextitems.Length - 1);
         GameObject curItem = Instantiate(nextitems[rand], new Vector3(-20, 1, 0), Quaternion.identity);
         items.Add(curItem);
-
     }
 
     public void DeductPoint(){
@@ -39,16 +37,5 @@ public class CustomerManager : MonoBehaviour
 
     public void DidError(){
         errorTol-=1;
-    }
-
-        public static CustomerManager Instance{
-        get{ 
-            lock(padlock) {
-                if (instance == null){
-                    instance = new CustomerManager();
-                }
-                return instance;
-            }
-        }
     }
 }
