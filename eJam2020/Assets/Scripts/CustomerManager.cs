@@ -24,7 +24,7 @@ public class CustomerManager : MonoBehaviour
         totalCustomers-=1;
         errorTol=1;
         item nextitems = Resources.LoadAll<GameObject>("Items");
-        var rand = Random.range(0,nextitems.count-1);
+        var rand = Random.Range(0,nextitems.count-1);
         Item curItem = Instantiate(nextitems[rand], new Vector3(-20, 1, 0), Quaternion.identity);
         items.Add(curItem);
 
