@@ -30,17 +30,17 @@ public class PlayerManager : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 camTargetPos += new Vector3(-0.3f, 0, 0);
-                if (camTargetPos.x < -25)
+                if (camTargetPos.x < -8)
                 {
-                    camTargetPos.x = -25;
+                    camTargetPos.x = -8;
                 }
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 camTargetPos += new Vector3(0.3f, 0, 0);
-                if (camTargetPos.x > 25)
+                if (camTargetPos.x > 8)
                 {
-                    camTargetPos.x = 25;
+                    camTargetPos.x = 8;
                 }
             }
 
