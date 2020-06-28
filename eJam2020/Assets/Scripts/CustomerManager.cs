@@ -6,7 +6,7 @@ public class CustomerManager : MonoBehaviour
 {
     private int errorTol; //amount of errors to 
     private int totalCustomers;
-    public List<Item> items;
+    public List<GameObject> items;
     public CustomerManager current;
     private static CustomerManager instance = null;
     private static readonly object padlock = new object();
@@ -21,11 +21,12 @@ public class CustomerManager : MonoBehaviour
     }
 
     public void NewCustomer(){
+        items = new List<GameObject>();
         totalCustomers-=1;
         errorTol=1;
-        item nextitems = Resources.LoadAll<GameObject>("Items");
-        var rand = Random.Range(0,nextitems.count-1);
-        Item curItem = Instantiate(nextitems[rand], new Vector3(-20, 1, 0), Quaternion.identity);
+        GameObject[] nextitems = Resources.LoadAll<GameObject>("Items");
+        var rand = Random.Range(0,nextitems.Length-1);
+        GameObject curItem = Instantiate(nextitems[rand], new Vector3(-20, 1, 0), Quaternion.identity);
         items.Add(curItem);
 
     }
